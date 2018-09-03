@@ -10,7 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('index');
+Route::group(['namespace'=>'Home'], function () {
+Route::post('/contato','ContatoController@EnviarContato')->name('home.contato.enviar');    
+Route::get('/','HomeController@Index')->name('home');
 });
+
+
