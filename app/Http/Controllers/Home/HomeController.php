@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 class HomeController extends Controller
 {
     public function Index(){
-        return view('home.iniciar.index');   
+       $ativo = 1;
+       $nomeMenu = "Cargos";
+        return view('home.iniciar.index',compact('ativo','nomeMenu'));   
     }
 }

@@ -1,0 +1,31 @@
+{
+    "menus": [
+        {
+            "section": "Menu",
+            "items": [
+                {
+                    "title": "Usuarios",
+                    "url": "\/admin\/users"
+                },
+                {
+                    "title": "Eleitos",
+                    "url": "\/admin\/eleitos"
+                },
+                {
+                    "title": "Grupos",
+                    "url": "\/admin\/grupos"
+                },
+                {
+                    "title": "Partidos",
+                    "url": "\/admin\/partidos"
+                },
+                {
+                    "title": "Contatos",
+                    "url": "\/admin\/contatos"
+                }
+               
+            ]
+        }
+       
+    ]
+}

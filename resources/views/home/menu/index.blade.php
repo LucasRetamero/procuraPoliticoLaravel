@@ -9,11 +9,16 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="{{ route('home.index') }}">Home </a>
+            </li>
+            @if($ativo == 1)
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#about">Objetivo</a>
             </li>
+            @endif
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#projects">Cargos</a>
+              <a class="nav-link js-scroll-trigger" href="#projects">{{ $nomeMenu }}</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#contato">Contato</a>
