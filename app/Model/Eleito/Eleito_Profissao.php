@@ -40,5 +40,10 @@ class Eleito_Profissao extends Model
      return Eleito_Profissao::where('id',$id)
                              ->delete();	
     }
+
+    public function Remover($id){
+        return Eleito_Profissao::where('eleito_id',$id)
+                    ->delete();    
+        }
         
 }

@@ -35,6 +35,11 @@ class Eleito_Academico extends Model
                             ->delete();	
     }
 
+    public function Remover($id){
+      return Eleito_Academico::where('eleito_id',$id)
+                  ->delete();    
+      }
+
 
   
 }

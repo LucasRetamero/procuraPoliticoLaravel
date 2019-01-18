@@ -196,7 +196,10 @@
      @foreach($buscarProjeto as $nomeProjeto)
         <tr>
          <td><p class="text-sm-left" style="width: 18rem;">{{$nomeProjeto->ementa}}</p></td>
-         <td><a class="btn btn-success btn-sm" href="#" role="button"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar</a>/<a class="btn btn-warning btn-sm" href="#" role="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>/<a class="btn btn-danger btn-sm" href="#" role="button"><i class="fa fa-trash" aria-hidden="true"></i> Deletar</a></td>
+         <td>
+          <a class="btn btn-success btn-sm" href="{{ route('admin.eleitos.ifnotexist.cadastrar.projeto.form',['id'=>$item->id])}}" role="button"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar</a>/
+          <a class="btn btn-warning btn-sm" href="{{ route('admin.eleitos.form.atualizar.projeto',['id'=>$nomeProjeto->id]) }}" role="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>/
+          <a class="btn btn-danger btn-sm" href="{{ route('admin.eleitos.projeto.remover',['id'=>$item->id,'idProjeto'=>$nomeProjeto->id])}}" role="button"><i class="fa fa-trash" aria-hidden="true"></i> Deletar</a></td>
        </tr>
      @endforeach     
          </tbody>
@@ -207,7 +210,7 @@
 <div class="alert alert-danger" role="alert">
   Projetos não encontradao,adicione os projetos do eleitor!
 </div>
-  <a class="btn btn-success btn-lg btn-block" href="#" role="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Adicionar projetos</a>
+  <a class="btn btn-success btn-lg btn-block" href="{{ route('admin.eleitos.ifnotexist.cadastrar.projeto.form',['id'=>$item->id])}}" role="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Adicionar projetos</a>
  <hr> 
  @endif
   </div>
@@ -227,7 +230,9 @@
      @foreach($buscarProcesso as $nomeProcesso)
             <tr>
          <td><p class="text-sm-left" style="width: 18rem;">{{$nomeProcesso->descricao}}</p></td>
-         <td><a class="btn btn-success btn-sm" href="#" role="button"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar</a>/<a class="btn btn-warning btn-sm" href="#" role="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>/<a class="btn btn-danger btn-sm" href="#" role="button"><i class="fa fa-trash" aria-hidden="true"></i> Deletar</a></td>
+         <td><a class="btn btn-success btn-sm" href="{{ route('admin.eleitos.ifnotexist.cadastrar.processo.form',['id'=>$item->id]) }}" role="button"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar</a>/
+          <a class="btn btn-warning btn-sm" href="{{ route('admin.eleitos.form.atualizar.processo',['id'=>$nomeProcesso->id])}}" role="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>/
+          <a class="btn btn-danger btn-sm" href="{{ route('admin.eleitos.processo.remover',['id'=>$item->id,'idProcesso'=>$nomeProcesso->id])}}" role="button"><i class="fa fa-trash" aria-hidden="true"></i> Deletar</a></td>
        </tr>
      @endforeach     
          </tbody>
@@ -238,7 +243,7 @@
 <div class="alert alert-danger" role="alert">
   Processos não encontrado,adicione os processos do eleitor!
 </div>
-  <a class="btn btn-success btn-lg btn-block" href="#" role="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Adicionar processo</a>
+  <a class="btn btn-success btn-lg btn-block" href="{{ route('admin.eleitos.ifnotexist.cadastrar.processo.form',['id'=>$item->id]) }}" role="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Adicionar processo</a>
  <hr> 
  @endif
   </div>
@@ -260,7 +265,10 @@
             <tr>
          <td>{{$nomeMandato->partido}}</td>
          <td>{{$nomeMandato->mandato}}</td>
-          <td><a class="btn btn-success btn-sm" href="#" role="button"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar</a>/<a class="btn btn-warning btn-sm" href="#" role="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>/<a class="btn btn-danger btn-sm" href="#" role="button"><i class="fa fa-trash" aria-hidden="true"></i> Deletar</a></td>
+          <td>
+          <a class="btn btn-success btn-sm" href="{{ route('admin.eleitos.ifnotexist.cadastrar.mandato.form',['id'=>$item->id]) }}" role="button"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar</a>/
+          <a class="btn btn-warning btn-sm" href="{{ route('admin.eleitos.form.atualizar.mandato',['id'=>$nomeMandato->id])     }}" role="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>/
+          <a class="btn btn-danger btn-sm" href="{{ route('admin.eleitos.mandato.remover',['id'=>$item->id,'idMandato'=>$nomeMandato->id])}}" role="button"><i class="fa fa-trash" aria-hidden="true"></i> Deletar</a></td>
        </tr>
      @endforeach     
          </tbody>
@@ -271,7 +279,7 @@
 <div class="alert alert-danger" role="alert">
   Mandatos não encontrado,adicione os mandatos do eleitor!
 </div>
-  <a class="btn btn-success btn-lg btn-block" href="#" role="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Adicionar mandato</a>
+  <a class="btn btn-success btn-lg btn-block" href="{{ route('admin.eleitos.ifnotexist.cadastrar.mandato.form',['id'=>$item->id]) }}" role="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Adicionar mandato</a>
  <hr> 
  @endif
   </div>

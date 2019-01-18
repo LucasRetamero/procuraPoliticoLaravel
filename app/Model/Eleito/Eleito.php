@@ -89,4 +89,9 @@ class Eleito extends Model
     return Eleito::where('id',$id)
                    ->update($dados);
     }
+
+    public function Remover($id){
+    return Eleito::where('id',$id)
+                ->delete();    
+    }
 }

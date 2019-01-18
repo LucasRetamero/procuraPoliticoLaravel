@@ -48,20 +48,9 @@
                                         <td>{{ $item->sexo }}</td>
                                         <td>{{ $item->estado }}</td>              
                                         <td>
-                                            <a href="{{ route('admin.eleitos.perfil',['id'=>$item->id])}}" title="View User"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
-                                            <a href="{{ route('admin.eleitos.form.atualizar',['id'=>$item->id]) }}" title="Edit User"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-                                            {!! Form::open([
-                                                'method' => 'DELETE',
-                                                'url' => ['/admin/eleitos/deletar', $item->id],
-                                                'style' => 'display:inline'
-                                            ]) !!}
-                                                {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i>', array(
-                                                        'type' => 'submit',
-                                                        'class' => 'btn btn-danger btn-sm',
-                                                        'title' => 'Deletar Eleitor',
-                                                        'onclick'=>'return confirm("Deletar Eleitor?")'
-                                                )) !!}
-                                            {!! Form::close() !!}
+                                            <a href="{{ route('admin.eleitos.perfil',['id'=>$item->id])}}" title="View User"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Perfil</button></a>
+                                            <!--<a href="{{ route('admin.eleitos.form.atualizar',['id'=>$item->id]) }}" title="Edit User"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>-->
+                                            <a class="btn btn-danger btn-sm" onclick="return confirm('Deletar Eleitor?')" href="{{route('admin.eleitos.deletar', $item->id)}}"><i class="fa fa-trash"></i> Deletar</a>   
                                         </td>
                                     </tr>
                                 @endforeach

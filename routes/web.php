@@ -136,6 +136,12 @@ Route::any('/eleitos/atualizar/academico/{id}','EleitoController@IndexEditarAcad
 
 Route::any('/eleitos/atualizar/profissao/{id}','EleitoController@IndexEditarProfissao')->name('admin.eleitos.form.atualizar.profissao');
 
+Route::any('/eleitos/atualizar/projeto/{id}','EleitoController@IndexEditarProjeto')->name('admin.eleitos.form.atualizar.projeto');
+
+Route::any('/eleitos/atualizar/processo/{id}','EleitoController@IndexEditarProcesso')->name('admin.eleitos.form.atualizar.processo');
+
+Route::any('/eleitos/atualizar/mandato/{id}','EleitoController@IndexEditarMandato')->name('admin.eleitos.form.atualizar.mandato');
+
 //Atualizar info do eleitor
 
 Route::post('/eleitos/atualizareleitor','EleitoController@edit')->name('admin.eleitos.atualizar');
@@ -145,6 +151,12 @@ Route::post('/eleitos/atualizareleitorbiografia','EleitoController@editBiografia
 Route::post('/eleitos/atualizareleitoracademico','EleitoController@editAcademico')->name('admin.eleitos.atualizar.academico');
 
 Route::post('/eleitos/atualizareleitorprofissao','EleitoController@editProfissao')->name('admin.eleitos.atualizar.profissao');
+
+Route::post('/eleitos/atualizareleitorprojeto','EleitoController@editProjeto')->name('admin.eleitos.atualizar.projeto');
+
+Route::post('/eleitos/atualizareleitorprocesso','EleitoController@editProcesso')->name('admin.eleitos.atualizar.processo');
+
+Route::post('/eleitos/atualizareleitormandato','EleitoController@editMandato')->name('admin.eleitos.atualizar.mandato');
 
 //Mostrar info do eleitor
 
@@ -158,6 +170,12 @@ Route::any('/eleitos/cadastrar/academico/{id}','EleitoController@IndexCadastrarA
 
 Route::any('/eleitos/cadastrar/profissao/{id}','EleitoController@IndexCadastrarProfissaoForm')->name('admin.eleitos.ifnotexist.cadastrar.profissao.form');
 
+Route::any('/eleitos/cadastrar/projeto/{id}','EleitoController@IndexCadastrarProjetoForm')->name('admin.eleitos.ifnotexist.cadastrar.projeto.form');
+
+Route::any('/eleitos/cadastrar/processo/{id}','EleitoController@IndexCadastrarProcessoForm')->name('admin.eleitos.ifnotexist.cadastrar.processo.form');
+
+Route::any('/eleitos/cadastrar/mandato/{id}','EleitoController@IndexCadastrarMandatoForm')->name('admin.eleitos.ifnotexist.cadastrar.mandato.form');
+
 //Cadastrar eleito caso vazio
 
 Route::post('/eleitos/cadastrar/biografiaifnotexist','EleitoController@storeIfNotExistBiografia')->name('admin.eleitos.ifnotexist.cadastrar.biografia');
@@ -165,6 +183,12 @@ Route::post('/eleitos/cadastrar/biografiaifnotexist','EleitoController@storeIfNo
 Route::post('/eleitos/cadastrar/academicoifnotexist','EleitoController@storeIfNotExistAcademico')->name('admin.eleitos.ifnotexist.cadastrar.academico');
 
 Route::post('/eleitos/cadastrar/profissaoifnotexist','EleitoController@storeIfNotExistProfissao')->name('admin.eleitos.ifnotexist.cadastrar.profissao');
+
+Route::post('/eleitos/cadastrar/projetoifnotexist','EleitoController@storeIfNotExistProjeto')->name('admin.eleitos.ifnotexist.cadastrar.projeto');
+
+Route::post('/eleitos/cadastrar/processoifnotexist','EleitoController@storeIfNotExistProcesso')->name('admin.eleitos.ifnotexist.cadastrar.processo');
+
+Route::post('/eleitos/cadastrar/mandatoifnotexist','EleitoController@storeIfNotExistMandato')->name('admin.eleitos.ifnotexist.cadastrar.mandato');
 
 //Deletar info do eleito
 
@@ -174,15 +198,18 @@ Route::get('/eleitos/deletar/academico/{id}/{idAcademico}','EleitoController@des
 
 Route::get('/eleitos/deletar/profissao/{id}/{idProfissao}','EleitoController@destroyEleitoProfissao')->name('admin.eleitos.profissao.remover');
 
+Route::get('/eleitos/deletar/projeto/{id}/{idProjeto}','EleitoController@destroyEleitoProjeto')->name('admin.eleitos.projeto.remover');
 
+Route::get('/eleitos/deletar/processo/{id}/{idProcesso}','EleitoController@destroyEleitoProcesso')->name('admin.eleitos.processo.remover');
+
+Route::get('/eleitos/deletar/mandato/{id}/{idMandato}','EleitoController@destroyEleitoMandato')->name('admin.eleitos.mandato.remover');
 //Grupo--------------------
 
 Route::get('/grupos','GrupoController@Index')->name('admin.grupos.lista');
 
 Route::post('/gruposlistafiltrada','GrupoController@FiltrarLetra')->name('admin.grupos.lista.filtrada');
 
-Route::get('/grupos/cadastrar','GrupoController@IndexFormCadastrar')->name('
-	admin.grupos.form.cadastrar');
+Route::get('/grupos/cadastrar','GrupoController@IndexFormCadastrar')->name('admin.grupos.form.cadastrar');
 
 Route::post('/grupos/cadastrargrupo','GrupoController@store')->name('admin.grupos.cadastrar');
 
@@ -190,8 +217,7 @@ Route::get('/grupos/atualizar/{id}','GrupoController@IndexFormAtualizar')->name(
 
 Route::post('/grupos/atualizargrupo','GrupoController@edit')->name('admin.grupo.editar');
 
-Route::get('/grupos/deletar/{id}','GrupoController@destroy')->name('
-	admin.grupos.deletar');
+Route::get('/grupos/deletar/{id}','GrupoController@destroy')->name('admin.grupos.deletar');
 
 //Partido ------------------
 

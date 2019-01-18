@@ -34,4 +34,9 @@ class Eleito_Biografia extends Model
     return Eleito_Biografia::where('eleito_id',$id)
                             ->count();    
     }
+
+    public function Remover($id){
+      return Eleito_Biografia::where('eleito_id',$id)
+                  ->delete();    
+      }
 }

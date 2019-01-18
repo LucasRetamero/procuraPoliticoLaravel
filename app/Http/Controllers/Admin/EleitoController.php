@@ -132,6 +132,30 @@ class EleitoController extends Controller
    }
    }
 
+   public function IndexEditarProjeto($id){
+    if(count($this->objEleitoProjeto->ColetarUnico($id)) > 0){
+   return view('admin.eleitos.editarPassos.quinto',['dados'=>$this->objEleitoProjeto->ColetarUnico($id)]);
+   }else{
+   return $this->Index();
+   }
+   }
+
+   public function IndexEditarProcesso($id){
+   if(count($this->objEleitoProcesso->ColetarUnico($id)) > 0){
+   return view('admin.eleitos.editarPassos.sexto',['dados'=>$this->objEleitoProcesso->ColetarUnico($id)]);
+   }else{
+   return $this->Index();
+   }
+   }
+
+   public function IndexEditarMandato($id){
+    if(count($this->objEleitoMandato->ColetarUnico($id)) > 0){
+      return view('admin.eleitos.editarPassos.setimo',['dados'=>$this->objEleitoMandato->ColetarUnico($id)]);
+      }else{
+      return $this->Index();
+      }
+   }
+
    /*
    * Form do cadastro dos dados caso não haja 
    */
@@ -158,6 +182,30 @@ class EleitoController extends Controller
    }else{
    return view('admin.eleitos.editarPassos.cadastrarForm.quarto',['id'=>$id]);
    }
+   }
+
+   public function IndexCadastrarProjetoForm($id){
+   if(count($this->objEleito->BuscarUnicoEleito($id)) <= 0){
+    return $this->Index();
+   }else{
+    return view('admin.eleitos.editarPassos.cadastrarForm.quinto',['id'=>$id]);
+   } 
+   }
+
+   public function IndexCadastrarProcessoForm($id){
+    if(count($this->objEleito->BuscarUnicoEleito($id)) <= 0){
+    return $this->Index();
+   }else{
+    return view('admin.eleitos.editarPassos.cadastrarForm.sexto',['id'=>$id]);
+   } 
+   }
+
+   public function IndexCadastrarMandatoForm($id){
+    if(count($this->objEleito->BuscarUnicoEleito($id)) <= 0){
+      return $this->Index();
+     }else{
+      return view('admin.eleitos.editarPassos.cadastrarForm.setimo',['id'=>$id]);
+     }  
    }
     
    /*
@@ -192,6 +240,39 @@ class EleitoController extends Controller
       $dado = $request->except(['btnAcao','_token']);
       $add = $this->objEleitoProfissao->CadastrarProfissao($dado);
       return $this->showEleito($request['eleito_id']);
+    }
+
+    public function storeIfNotExistProjeto(Request $request){
+     $this->validate($request,[
+     'materia' => 'required',
+     'ementa'  => 'required',
+     'autor'   => 'required',
+     'data'    => 'required'
+     ]);
+     $dado = $request->except(['btnAcao','_token']);
+     $add  = $this->objEleitoProjeto->CadastrarProjeto($dado);
+     return $this->showEleito($request['eleito_id']);
+    }
+
+    public function storeIfNotExistProcesso(Request $request){
+     $this->validate($request,[
+     'processo'  => 'required',
+     'descricao' => 'required'
+     ]);
+     $dado = $request->except(['btnAcao','_token']);
+     $add  = $this->objEleitoProcesso->CadastrarProcesso($dado);
+     return $this->showEleito($request['eleito_id']);
+    }
+
+    public function storeIfNotExistMandato(Request $request){
+        $this->validate($request,[
+        'partido'  => 'required',
+        'mandato' => 'required',
+        'inicio' => 'required'
+        ]);
+        $dado = $request->except(['btnAcao','_token']);
+        $add  = $this->objEleitoMandato->CadastrarMandato($dado);
+        return $this->showEleito($request['eleito_id']); 
     }
 
     public function teste(){
@@ -435,7 +516,39 @@ class EleitoController extends Controller
     $dados = $request->except(['_token','btnAcao','eleito_id']);
     $editar = $this->objEleitoProfissao->EditarProfissao($request['id'],$dados);
     return $this->showEleito($request['eleito_id']);
+    }
 
+    public function editProjeto(Request $request){
+     $this->validate($request,[
+     'materia' => 'required',
+     'ementa'  => 'required',
+     'autor'   => 'required',
+     'data'    => 'required'
+     ]);
+     $dados = $request->except(['_token','btnAcao','eleito_id']);
+     $editar = $this->objEleitoProjeto->EditarProjeto($request['id'],$dados);
+     return $this->showEleito($request['eleito_id']);
+    }
+
+    public function editProcesso(Request $request){
+     $this->validate($request,[
+     'processo'  => 'required',
+     'descricao' => 'required'
+     ]);
+     $dados = $request->except(['_token','btnAcao','eleito_id']);  
+     $editar = $this->objEleitoProcesso->EditarProcesso($request['id'],$dados);
+     return $this->showEleito($request['eleito_id']); 
+    }
+
+    public function editMandato(Request $request){
+      $this->validate($request,[
+        'partido'  => 'required',
+        'mandato' => 'required',
+        'inicio' => 'required'
+        ]);
+        $dados = $request->except(['_token','btnAcao','eleito_id']);  
+        $editar = $this->objEleitoMandato->EditarMandato($request['id'],$dados);
+        return $this->showEleito($request['eleito_id']); 
     }
 
     /**
@@ -481,11 +594,15 @@ class EleitoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function Destroy($id)
     {
-     $verifica = $this->objEleito::where('id',$id)
-                                  ->delete();
-     if($verifica)
+     $rmEleitoBiografia = $this->objEleitoBiografia->Remover($id);    //segundo
+     $rmEleitoAcademico = $this->objEleitoAcademico->Remover($id);   //terceiro
+     $rmEleitoProfissao = $this->objEleitoProfissao->Remover($id);  //quarto
+     $rmEleitProjeto    = $this->objEleitoProjeto->Remover($id);   //quinto
+     $rmEleitoProcesso  = $this->objEleitoProcesso->Remover($id); //sexto
+     $rmEleitoMandato   = $this->objEleitoMandato->Remover($id); //setimo
+     $rmEleito          = $this->objEleito->Remover($id);       //principal
      return $this->Index();
     }
 
@@ -497,5 +614,20 @@ class EleitoController extends Controller
     public function destroyEleitoProfissao($id,$idProfissao){
      $remove = $this->objEleitoProfissao->DeletarUnico($idProfissao);
      return $this->showEleito($id);	
+    }
+
+    public function destroyEleitoProjeto($id,$idProjeto){
+      $remove = $this->objEleitoProjeto->DeletarUnico($idProjeto);  
+      return $this->showEleito($id);
+    }
+
+    public function destroyEleitoProcesso($id,$idProcesso){
+      $remove = $this->objEleitoProcesso->DeletarUnico($idProcesso);  
+      return $this->showEleito($id);  
+    }
+
+    public function destroyEleitoMandato($id,$idMandato){
+      $remove = $this->objEleitoMandato->DeletarUnico($idMandato);  
+      return $this->showEleito($id);  
     }
 }

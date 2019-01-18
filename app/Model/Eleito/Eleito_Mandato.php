@@ -15,6 +15,7 @@ class Eleito_Mandato extends Model
         return Eleito_Mandato::where('eleito_id',$id)
                                 ->get();    
     }
+
     public function PreCadastroMandato($id){
         return Eleito_Mandato::create([
              'eleito_id' => $id
@@ -24,4 +25,24 @@ class Eleito_Mandato extends Model
     public function CadastrarMandato($dado){
       return Eleito_Mandato::create($dado);
     }
+
+    public function ColetarUnico($id){
+      return Eleito_Mandato::where('id',$id)
+                            ->get();  
+    }
+
+    public function EditarMandato($id,$dados){
+      return Eleito_Mandato::where('id',$id)
+                            ->update($dados);  
+    }
+
+    public function DeletarUnico($idMandato){
+      return Eleito_Mandato::where('id',$idMandato)
+                            ->delete();
+    }
+
+    public function Remover($id){
+      return Eleito_Mandato::where('eleito_id',$id)
+                  ->delete();    
+      }
 }
