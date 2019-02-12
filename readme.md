@@ -18,10 +18,10 @@ git clone git@github.com:LucasRetamero/procuraPoliticoLaravel.git
 ```
 
 ### Preview
-![Image of Yaktocat](https://github.com/LucasRetamero/procuraPoliticoLaravel/public/img/projeto/inicio pt 1.png)
-![Image of Yaktocat](https://github.com/LucasRetamero/procuraPoliticoLaravel/public/img/projeto/inicio pt 2.png)
-![Image of Yaktocat](https://github.com/LucasRetamero/procuraPoliticoLaravel/public/img/projeto/inicio pt 3.png)
-![Image of Yaktocat](https://github.com/LucasRetamero/procuraPoliticoLaravel/public/img/projeto/inicio pt 4.png)
-![Image of Yaktocat](https://github.com/LucasRetamero/procuraPoliticoLaravel/public/img/projeto/inicio pt 5.png)
-![Image of Yaktocat](https://github.com/LucasRetamero/procuraPoliticoLaravel/public/img/projeto/inicio pt 6.png)
+![Image of Yaktocat](https://github.com/LucasRetamero/procuraPoliticoLaravel/blob/master/public/img/projeto/inicio%20pt%201.png)
+![Image of Yaktocat](https://github.com/LucasRetamero/procuraPoliticoLaravel/blob/master/public/img/projeto/inicio%20pt%202.png)
+![Image of Yaktocat](https://github.com/LucasRetamero/procuraPoliticoLaravel/blob/master/public/img/projeto/inicio%20pt%203.png)
+![Image of Yaktocat](https://github.com/LucasRetamero/procuraPoliticoLaravel/blob/master/public/img/projeto/inicio%20pt%204.png)
+![Image of Yaktocat](https://github.com/LucasRetamero/procuraPoliticoLaravel/blob/master/public/img/projeto/inicio%20pt%205.png)
+![Image of Yaktocat](https://github.com/LucasRetamero/procuraPoliticoLaravel/blob/master/public/img/projeto/inicio%20pt%206.png)
 
