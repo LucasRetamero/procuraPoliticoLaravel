@@ -81,7 +81,7 @@
         <hr/>
 
         <div class="container">
-            &copy; {{ date('Y') }}. Created by <a href="http://www.appzcoder.com">AppzCoder</a>
+            &copy; {{ date('Y') }}. Copiright <a href="#">ProcuraPolitico</a>
             <br/>
         </div>
 

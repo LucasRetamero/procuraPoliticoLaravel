@@ -239,8 +239,7 @@ Route::get('/partidos/deletar/{id}','PartidoController@destroyer')->name('admin.
 
 Route::get('/contatos','ContatoController@Index')->name('admin.contato.lista');
 
-Route::get('/contatos/show/{id}','ContatoController@ShowContatos')->name('
-	admin.contato.show');
+Route::get('/contatos/show/{id}','ContatoController@ShowContatos')->name('admin.contato.show');
 
 Route::get('/contatos/deletar/{id}','ContatoController@Destroyer')->name('admin.contato.deletar');
 

@@ -1,0 +1,24 @@
+Para o bom funcionamento do sistema evite deletar os grupos já configurado como:
+Presidente 
+Deputado Federal
+Senador
+Governador
+Deputado Estadual
+Vereador
+
+Explicando nomenclatura dos arquivos:
+
+Segundo.blade  = Rerefere-se a biografia
+Terceiro.blade = Refere-se a informação academica
+Quarto.blade   = Refere-se a profissão
+Quinto.blade   = Refere-se ao projetos
+Sexto.blade    = Refere-se ao processos
+Setimo.blade   = Refere-se ao partido/mandato
+
+Obs: Em caso de deletear algum grupo por descuido,para o funcionamento adequado do sistema,recomendo re-upar o banco,é necessario que o grupo esteja nessa ordem:
+id - 1 nome:Presidente 
+id - 2 nome:Deputado Federal
+id - 3 nome:Senador
+id - 4 nome:Governador
+id - 5 nome:Deputado Estadual
+id - 6 nome:Vereador

@@ -63,14 +63,28 @@
                             </div>
   @endforeach
   </div>
+
+  <!-- Script for read text of textarea -->
+    <script type="text/javascript">
+function tocar(){
+  if(document.getElementById('text').value == "")
+  alert('É necessario que digite a biografia!');
+  else
+  responsiveVoice.cancel();
+  responsiveVoice.speak(document.getElementById('text').value, 'Brazilian Portuguese Female');
+}
+function parar(){
+  responsiveVoice.cancel();
+}
+</script>
+
   
   <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
    @foreach($buscarBiografia as $dado)
-<button class="butt js--triggerAnimation btn btn-outline-warning" onclick="responsiveVoice.speak('{{$dado->biografia}}','Brazilian Portuguese Female');" 
-type="button" value="Play"><i class="fas fa-volume-up"></i> Ouvir Biografia</button>
-<button class="butt js--triggerAnimation btn btn-outline-danger" onclick="responsiveVoice.cancel();" 
+<button class="butt js--triggerAnimation btn btn-outline-warning" onclick="tocar()" type="button" value="Play"><i class="fas fa-volume-up"></i> Ouvir Biografia</button>
+<button class="butt js--triggerAnimation btn btn-outline-danger" onclick="parar()" 
 type="button" value="Play"><i class="fas fa-volume-off"></i> Parar o Audio</button>
-  <p class="text-justify">{{$dado->biografia}}</p><br>
+   <textarea class="form-control" id="text" rows="10" name="biografia"> {{$dado->biografia}}</textarea>
   @endforeach
   <div class="alert alert-success" role="alert"> 
    Historico Academico
