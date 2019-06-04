@@ -8,7 +8,7 @@
 </p>
 
 # Procura Politico
-Através desse projeto sera capaz de informar o usuario sobre tudo de seu eleitor(Já eleito e futuros candatos),com uma interface
+Através desse projeto sera capaz de informar o usuario sobre tudo de um político(Já eleito e futuros candatos),com uma interface
 de facil uso e responsiva. Painel de administração de uso simples,sem necessidade de conhecimento technico para a postagem e administração do site.
 
 ### Preview
